@@ -11,4 +11,13 @@ const createBook = async (req, res) => {
   }
 };
 
-module.exports = { createBook };
+const displayBooks = async (req, res) => {
+  try {
+    const books = await Store.find();
+    res.status(200).json(books);
+  } catch (error) {
+    res.status(500).json({ message: "Error", error: error.message });
+  }
+};
+
+module.exports = { createBook, displayBooks };
