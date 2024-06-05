@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./UpdateBook.css";
 
 function UpdateBook() {
   const { id } = useParams(); // Get the id from URL
@@ -35,32 +36,35 @@ function UpdateBook() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        Title:
+    <div className="update-book-container">
+      <form onSubmit={handleSubmit} className="update-book-form">
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
           value={title}
           name="title"
+          id="title"
           onChange={(e) => setTitle(e.target.value)}
         />
-        Author:
+        <label htmlFor="author">Author:</label>
         <input
           type="text"
           value={author}
           name="author"
+          id="author"
           onChange={(e) => setAuthor(e.target.value)}
         />
-        Price:
+        <label htmlFor="price">Price:</label>
         <input
           type="text"
           value={price}
           name="price"
+          id="price"
           onChange={(e) => setPrice(e.target.value)}
         />
-        <input type="submit" value="Update" />
+        <input type="submit" value="Update" className="submit-button" />
       </form>
-      <p>{memo}</p>
+      <p className="memo">{memo}</p>
     </div>
   );
 }

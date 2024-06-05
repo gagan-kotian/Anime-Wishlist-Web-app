@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./StoreBooks.css";
 
 function StoreBooks() {
   const [title, setTitle] = useState("");
@@ -30,32 +31,35 @@ function StoreBooks() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        Title:
+    <div className="store-books-container">
+      <form onSubmit={handleSubmit} className="store-books-form">
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
           value={title}
           name="title"
+          id="title"
           onChange={(e) => setTitle(e.target.value)}
         />
-        Author:
+        <label htmlFor="author">Author:</label>
         <input
           type="text"
           value={author}
           name="author"
+          id="author"
           onChange={(e) => setAuthor(e.target.value)}
         />
-        Price:
+        <label htmlFor="price">Price:</label>
         <input
           type="text"
           value={price}
           name="price"
+          id="price"
           onChange={(e) => setPrice(e.target.value)}
         />
-        <input type="submit" value="Store" />
+        <input type="submit" value="Store" className="submit-button" />
       </form>
-      <p>{memo}</p>
+      <p className="memo">{memo}</p>
     </div>
   );
 }

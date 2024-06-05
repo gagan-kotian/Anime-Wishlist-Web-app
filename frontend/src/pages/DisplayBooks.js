@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./DisplayBooks.css";
 
 function DisplayBooks() {
   const [books, setBooks] = useState([]);
@@ -27,7 +28,6 @@ function DisplayBooks() {
 
   const deleteBook = async (id) => {
     try {
-      console.log(id);
       await axios.delete(`http://localhost:3000/api/delete/${id}`);
       setBooks(books.filter((book) => book._id !== id));
     } catch (error) {
@@ -41,21 +41,31 @@ function DisplayBooks() {
   };
 
   return (
-    <div>
-      <h1>DisplayBooks</h1>
+    <div className="display-books-container">
+      <h1>Display Books</h1>
       {loading ? (
         <p>Loading books...</p>
       ) : error ? (
-        <p>{error}</p>
+        <p className="error-message">{error}</p>
       ) : (
-        <ul>
+        <ul className="book-list">
           {books.map((book) => (
-            <li key={book._id}>
+            <li key={book._id} className="book-item">
               <h2>{book.title}</h2>
               <p>Author: {book.author}</p>
               <p>Price: {book.price}</p>
-              <button onClick={() => deleteBook(book._id)}>Delete</button>
-              <button onClick={() => navigateToUpdate(book._id)}>Update</button>
+              <button
+                onClick={() => deleteBook(book._id)}
+                className="delete-button"
+              >
+                Delete
+              </button>
+              <button
+                onClick={() => navigateToUpdate(book._id)}
+                className="update-button"
+              >
+                Update
+              </button>
             </li>
           ))}
         </ul>

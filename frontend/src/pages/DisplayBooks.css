@@ -1,0 +1,37 @@
+/* DisplayBooks.css */
+
+.display-books-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.error-message {
+  color: #ff0000;
+}
+
+.book-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.book-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.delete-button,
+.update-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-button {
+  background-color: #007bff;
+  margin-left: 5px;
+}

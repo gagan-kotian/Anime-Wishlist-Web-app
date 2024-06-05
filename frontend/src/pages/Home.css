@@ -1,0 +1,49 @@
+/* Home.css */
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  color: #333333;
+}
+
+/* Main content styling */
+.main-content {
+  text-align: center;
+}
+
+.main-content p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #666666;
+}
+
+/* Button styling */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #6a0dad;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #4b0082;
+}
