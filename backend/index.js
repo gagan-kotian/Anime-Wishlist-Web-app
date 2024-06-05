@@ -7,11 +7,10 @@ const routes = require("./routes/storeRoute.js");
 app.use(express.json());
 app.use(cors());
 
-const uri =
-  "mongodb+srv://gagankotian48:Y77WGdDWP1WKhVEx@cluster0.sihiiyr.mongodb.net/bookstore";
+const uri = "mongodb://127.0.0.1:27017/bookstore"; // Use IPv4 address
 
 mongoose
-  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(uri)
   .then(() => {
     console.log("Connected to MongoDB");
     // Your code here
@@ -19,7 +18,9 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
   });
+
 app.use("/api", routes);
+
 app.get("/", (req, res) => {
   res.send("Hi");
 });

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function DisplayBooks() {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchBooks() {
@@ -23,6 +25,21 @@ function DisplayBooks() {
     fetchBooks();
   }, []);
 
+  const deleteBook = async (id) => {
+    try {
+      console.log(id);
+      await axios.delete(`http://localhost:3000/api/delete/${id}`);
+      setBooks(books.filter((book) => book._id !== id));
+    } catch (error) {
+      console.error("Error deleting book:", error.message);
+      setError("Failed to delete book. Please try again later.");
+    }
+  };
+
+  const navigateToUpdate = (id) => {
+    navigate(`/update/${id}`);
+  };
+
   return (
     <div>
       <h1>DisplayBooks</h1>
@@ -37,6 +54,8 @@ function DisplayBooks() {
               <h2>{book.title}</h2>
               <p>Author: {book.author}</p>
               <p>Price: {book.price}</p>
+              <button onClick={() => deleteBook(book._id)}>Delete</button>
+              <button onClick={() => navigateToUpdate(book._id)}>Update</button>
             </li>
           ))}
         </ul>
