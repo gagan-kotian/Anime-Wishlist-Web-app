@@ -1,10 +1,14 @@
-import DisplayBooks from "./pages/DisplayBooks";
 import Home from "./pages/Home";
-import StoreBooks from "./pages/StoreBooks";
+
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import UpdateBook from "./pages/UpdateBook";
+
+import StoreAnime from "./pages/StoreAnime";
+import ViewAnime from "./pages/ViewAnime";
+import NotFound from "./pages/NotFound";
+import WishlistPage from "./pages/WishlistPage";
+import UpdateAnime from "./pages/UpdateAnime";
 
 function App() {
   return (
@@ -16,9 +20,12 @@ function App() {
         <br></br>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/store" element={<StoreBooks />}></Route>
-          <Route path="/display" element={<DisplayBooks />}></Route>
-          <Route path="/update/:id" element={<UpdateBook />} />
+          <Route path="/store" element={<StoreAnime />}></Route>
+          <Route path="/wishlist" element={<WishlistPage />}></Route>
+
+          <Route path="/view" element={<ViewAnime />}></Route>
+          <Route path="/update/:id" element={<UpdateAnime />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -7,7 +7,9 @@ const routes = require("./routes/storeRoute.js");
 app.use(express.json());
 app.use(cors());
 
-const uri = "mongodb://127.0.0.1:27017/bookstore"; // Use IPv4 address
+// const uri =
+//   "mongodb+srv://gagankotian48:Y77WGdDWP1WKhVEx@cluster0.sihiiyr.mongodb.net/anime";
+const uri = "mongodb://localhost:27017/bookstore";
 
 mongoose
   .connect(uri)
@@ -25,6 +27,6 @@ app.get("/", (req, res) => {
   res.send("Hi");
 });
 
-app.listen(3000, () => {
+app.listen(5000, () => {
   console.log("Server setup");
 });

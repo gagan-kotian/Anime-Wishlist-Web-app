@@ -5,15 +5,18 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <nav className="navbar">
-      <Link to="/" className="nav-link">
-        Home
-      </Link>
-      <Link to="/store" className="nav-link">
-        Store Books
-      </Link>
-      <Link to="/display" className="nav-link">
-        Display Books
-      </Link>
+      <div className="navbar-container">
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <Link to="/store" className="nav-link">
+          Store Anime
+        </Link>
+        <Link to="/view" className="nav-link">
+          View Anime
+        </Link>
+        <Link to="/wishlist">Wishlist My Watchlist</Link>
+      </div>
     </nav>
   );
 }
